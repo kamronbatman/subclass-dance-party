@@ -31,6 +31,7 @@ $(document).ready(function(){
     dancer.createNode();
     dancer.setPosition(dancer.top, dancer.left);
     dancer.step();
+    window.dancers.push(dancer);
 
 /*    var dancer = new dancerMakerFunction(Math.random() * 1000);
     var top = $("body").height() * Math.random();

@@ -28,6 +28,25 @@ makeDancer.prototype.tag = '<span>';
 makeDancer.prototype.createNode = function(){
   this.$node = $(this.tag).addClass(this.class);
   //this.$node = $('<span class="dancer"></span>');
+};
+
+makeDancer.prototype.lineUp = function() {
+  var index = 0;
+
+  window.dancers.forEach(function(dancer) {
+    dancer.$node.animate({
+      left: 50 + (Math.floor(index / 10) * 100) + 'px',
+      top: 75 + ((index % 10) * 75) + 'px'}, 5000);
+    index++;
+  });
+};
+
+makeDancer.prototype.spaz = function() {
+  window.dancers.forEach(function(dancer) {
+    dancer.$node.animate({
+      'top': $("body").height() * Math.random(),
+      'left': $("body").width() * Math.random() }, 5000);
+  });
 }
 
 /*// Creates and returns a new dancer object that can step

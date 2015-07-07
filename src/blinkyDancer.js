@@ -11,6 +11,11 @@ makeBlinkyDancer.prototype.step = function(){
   makeDancer.prototype.step.call(this);
 }
 
+makeBlinkyDancer.prototype.createNode = function(){
+  makeDancer.prototype.createNode.call(this);
+  this.$node.css({ 'border-color': 'white' });
+}
+
 /*var makeBlinkyDancer = function(top, left, timeBetweenSteps){
   var blinkyDancer = makeDancer(top, left, timeBetweenSteps);
 

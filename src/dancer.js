@@ -22,8 +22,12 @@ makeDancer.prototype.setPosition = function(top, left){
   this.$node.css(styleSettings);
 }
 
+makeDancer.prototype.class = 'dancer';
+makeDancer.prototype.tag = '<span>';
+
 makeDancer.prototype.createNode = function(){
-  this.$node = $('<span class="dancer"></span>');
+  this.$node = $(this.tag).addClass(this.class);
+  //this.$node = $('<span class="dancer"></span>');
 }
 
 /*// Creates and returns a new dancer object that can step

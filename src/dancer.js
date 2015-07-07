@@ -1,11 +1,38 @@
-// Creates and returns a new dancer object that can step
+var makeDancer = function(top, left, timeBetweenSteps){
+  this.timeBetweenSteps = timeBetweenSteps;
+  this.top = top;
+  this.left = left;
+};
+
+makeDancer.prototype.step = function(){
+  //var self = this;
+  //setTimeout(function(){ self.step(); }, this.timeBetweenSteps);
+
+  var makeBlinkyStep = this.step;
+
+  setTimeout( makeBlinkyStep.bind(this), this.timeBetweenSteps );
+}
+
+makeDancer.prototype.setPosition = function(top, left){
+  var styleSettings = {
+    top: top,
+    left: left
+  };
+
+  this.$node.css(styleSettings);
+}
+
+makeDancer.prototype.createNode = function(){
+  this.$node = $('<span class="dancer"></span>');
+}
+
+/*// Creates and returns a new dancer object that can step
 var makeDancer = function(top, left, timeBetweenSteps){
 
   var dancer = {};
 
   // use jQuery to create an HTML <span> tag
   dancer.$node = $('<span class="dancer"></span>');
-
 
   dancer.step = function(){
     // the basic dancer doesn't do anything interesting at all on each step,
@@ -30,4 +57,4 @@ var makeDancer = function(top, left, timeBetweenSteps){
   dancer.setPosition(top, left);
 
   return dancer;
-};
+};*/
